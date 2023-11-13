@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+       
+    </style>
+</head>
+<body>
+    
+
+<div id="image-container">
+<button onclick="Ac()">Önizlemeleri göster</button>  
+</div>
+<br>
+<br>
+
+
+
+<button onclick="beyaz()">Beyaz</button>
+<button onclick="siyah()">Siyah</button>
+
+
+
+<button onclick="Geri()">geri
+
+</button>
+<button onclick="ileri()">ileri</button>
+
+<div id="image-container2">
+    <img src="" alt="">
+</div>
+
+
+    <script>
+
+//1.soru bitti
+const div=document.createElement("div") 
+
+div.classList.add("container")
+
+document.body.append(div)
+
+
+const p=document.createElement("p")
+p.innerText="selamlar herkese"
+
+div.appendChild(p)
+
+
+
+//2.soru 
+
+
+const degistir=prompt("lütfen başlığı değiştirin")
+
+if(degistir){
+
+
+    document.title=degistir
+}
+
+//3.soru 
+
+
+ const link=['https://i.pinimg.com/736x/ac/58/7f/ac587fc0c34d0f7f7d6abd9d39a37b03.jpg',
+            'https://i.pinimg.com/550x/74/3c/6a/743c6ac45b3cad804af45a60485e73ae.jpg']
+
+ 
+
+ function Ac(){
+
+    const div=document.getElementById("image-container")
+
+  div.innerText=""
+
+ link.forEach(function(resim,ImageURL){
+
+    
+
+const img=document.createElement("img")
+
+img.src=resim;
+img.alt=`resim${ImageURL}`
+
+div.append(img)
+
+
+
+ })
+
+
+ }
+
+
+//4.soru
+
+
+function beyaz(){
+
+
+    document.body.style.backgroundColor="initial"
+
+
+}
+
+function siyah(){
+
+
+    document.body.style.backgroundColor="black"
+}
+
+//5.soru
+
+
+const images = [
+    "https://fastly.picsum.photos/id/132/200/300.jpg?hmac=oY1bslA1BJLjQ_GRTPoSm_Mtps2WtlDyfll3uIayrVQ",
+    "https://fastly.picsum.photos/id/913/200/300.jpg?hmac=DjpzGA27POHBn03vW7UxM5gI9phMxuAZ4hSKcRfJD9Y",
+    "https://fastly.picsum.photos/id/643/200/300.jpg?hmac=rS-MHa0BIMHdAgm-FZ7QM36aRKEAzzhSRNRv5n4uqGc",
+    "https://fastly.picsum.photos/id/393/200/300.jpg?hmac=zh8LVueWlQFz83Gn-9g49laZIMmCg_NC6jLkrQq0h5U",
+    "https://fastly.picsum.photos/id/880/200/300.jpg?hmac=dShSJOHRB--zjrqofJOm33xe4Cylybn00N77ewnaS2g",
+    "https://fastly.picsum.photos/id/880/200/300.jpg?hmac=dShSJOHRB--zjrqofJOm33xe4Cylybn00N77ewnaS2g"
+]
+let sayac=0;
+function ileri(){
+
+if(sayac>=images.length){
+
+    return;
+}
+
+const img1=document.querySelector("#image-container2 img")
+
+img1.src=images[sayac]
+
+sayac+=1;
+
+
+}
+
+
+function Geri(){
+
+if(sayac<0){
+
+    return;
+}
+
+const img1=document.querySelector("#image-container2 img")
+
+img1.src=images[sayac]
+sayac-=1;
+
+
+}
+
+
+
+
+
+
+
+
+
+    
+
+   
+
+   
+    
+
+    
+
+
+
+
+
+    </script>
+
+
+</body>
+</html>
