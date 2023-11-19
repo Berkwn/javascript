@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+
+
+</head>
+<body>
+
+
+    <div class="loader" id="loader"></div>
+
+    <div class="container" id="container">
+
+
+    </div>
+    
+
+
+
+    <script>
+document.addEventListener('DOMContentLoaded', function () {
+ 
+  makeApiRequest();
+});
+
+async function makeApiRequest() {
+  const div = document.getElementById('container');
+  const loader = document.getElementById('loader');
+
+  // Loader'ı göster
+  loader.style.display = 'block';
+
+  const request = await fetch("https://randomuser.me/api/?results=10");
+  const response = await request.json();
+
+  console.log("apiden gelenler", response);
+
+  response.results.forEach(user => {
+    const element = `
+      <div>
+        <h3>${user.name.first}</h3>
+        <div class="avatar-container">
+          <img src='${user.picture.large}'>
+        </div>
+      </div>
+    `;
+    div.innerHTML += element;
+  });
+
+  // Loader'ı gizle
+  loader.style.display = 'none';
+}
+
+
+
+    </script>
+</body>
+</html>
