@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    
+<div id="loader" class="loader"></div>
+<div id="container" class="container"></div>
+
+<button id="button" onclick="ClickOn()">YENİ BİR TODO EKLE</button>
+
+
+
+    <script>
+function ClickOn(){
+const container=document.getElementById('container')
+const todo=prompt("Eklemek istediğiniz todo'yu giriniz.")
+
+if(todo){
+  
+    const div=document.createElement('div')
+    div.appendChild(li)
+    
+    const listItem=document.createElement('li')
+    
+    
+    listItem.append(todo)
+    container.appendChild(listItem)
+    
+}
+    
+  }
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  makeApiRequest();
+});
+
+async function makeApiRequest() {
+
+ 
+  const div = document.getElementById('container');
+  const loader = document.getElementById('loader');
+  const button=document.getElementById('button');
+  div.appendChild(button)
+
+  // Loader'ı göster
+  loader.style.display = 'block';
+
+  
+
+  try {
+    const request = await fetch("https://jsonplaceholder.typicode.com/todos");
+    const response = await request.json();
+
+    console.log("apiden gelenler", response);
+
+    if (response && Array.isArray(response)) {
+      response.forEach(todo => {
+        const listItem = document.createElement('li');
+        listItem.textContent = ` ${todo.title}`;
+        div.appendChild(listItem);
+       
+      });
+    } else {
+      console.error('API yanıtında beklenen todo verileri bulunamadı.');
+    }
+  }  finally {
+    
+    loader.style.display = 'none';
+  }
+}
+
+       
+
+    </script>
+</body>
+</html>
