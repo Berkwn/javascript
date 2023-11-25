@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .button-container {
+
+            text-align: end;
+
+        }
+
+        .button-container button {
+
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        #products {
+
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: space-around;
+        }
+
+        .title {
+
+            text-align: center;
+        }
+        li {
+
+            list-style: none;
+        }
+
+
+        nav {
+
+            background-color: black;
+            position: relative;
+            z-index: 1;
+        }
+
+        nav ul {
+
+            display: flex;
+            min-height: 40px;
+            align-items: center;
+        }
+
+        nav ul li {
+
+            padding: 1rem;
+        }
+
+
+        nav li.ensag {
+
+            margin-left: auto;
+        }
+        nav li button {
+
+            padding: 8px;
+            cursor: pointer;
+     
+        }
+
+
+        .sidebar {
+
+            width: 0;
+            background-color: black;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            transition: 0.5s;
+        }
+
+        .sidebar.active {
+
+            width: 15%;
+        }
+
+
+        .site-container {
+
+            transition: 0.5s;
+            margin-top: 2rem;
+        }
+        .site-container.active {
+
+            margin-left: 14rem;
+        }
+
+        #sepet-products li {
+
+            margin-top: 5rem;
+            color: white;
+        }
+
+        #sepet-products li img {
+
+            width: 100%;
+        }
+
+
+        .sidebar {
+
+            overflow: auto;
+        }
+
+        .sidebar-container {
+            display: flex;
+            flex-wrap: wrap;
+            text-align: center;
+        }
+        .sidebar-container input {
+
+            width: 65%;
+            padding: 8px;
+        }
+
+        .sidebar-container button {
+
+                cursor: pointer;
+                padding: 8px;
+        }
+        #btnHesapla{
+
+            margin-top: 15px;
+        }
+        #sayac{
+            width: 20%;
+        }.price{
+
+            margin-top: 10px;
+            margin-left: 10px;
+
+        }
+        .sidebar-container{
+
+            margin-top: 15px;
+            margin-left: 40px;
+        }.anons{
+            float: right;
+            margin-top: 15px;
+            margin-right: 15px;
+            cursor: pointer;
+            background-color: red;
+            color: white;
+            border-radius: 15px;
+            padding: 8px;
+            border: none;
+        }
+
+</style>
+</head>
+<body>
+    
+
+
+    <nav>
+
+        <ul>
+
+            <li>
+
+                <a href="#">LOGO</a>
+            </li>
+
+            <li class="ensag">
+
+                <button id="sepetTrigger" onclick="openSepet()">Sepet</button>
+            </li>
+        </ul>
+
+
+    </nav>
+
+    <button id="anons" class="anons" onclick="anonsNone()" >Bildirimleri Kaldır</button>
+
+    <div class="sidebar">
+        
+        <ul id="sepet-products"></ul>
+        
+    </div>
+
+<div class="site-container">
+
+    <ul id="products">
+
+
+    </ul>
+
+
+</div>
+
+
+<script src="structure.js"></script>
+<script src="onload.js"></script>
+<script src="sepet.js"></script>
+
+
+
+
+
+    
+
+</body>
+</html>

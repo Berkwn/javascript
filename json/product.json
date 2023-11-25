@@ -1,0 +1,39 @@
+[
+    {
+        "id":23,
+        "name":"kuru",
+        "banner":"./images/kuru.jpg",
+        "price":50
+        
+
+    },
+
+    {
+        "id":24,
+        "name":"Taşlık",
+        "banner":"./images/tas.jpg",
+        "price":20
+        
+
+    },
+    {
+        "id":25,
+        "name":"Çay",
+        "banner":"./images/cay.jpg",
+        "price":30
+        
+
+    },
+
+    {   
+        "id":26,
+        "name":"Köpek",
+        "banner":"./images/kopek.jpg",
+        "price":40
+
+
+
+    }
+
+
+]
